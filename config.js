@@ -63,24 +63,24 @@ window.SITE_CONFIG = {
     // 开头自我介绍段落（可多段）
     intro: [
       {
-        en: "Hi, I'm a researcher in computer science. This paragraph is a short self-introduction: where you are now, what you work on, and what excites you. Replace everything in this template that says “Your Name” or “example” with your own information.",
-        zh: "你好，我是一名计算机领域的研究者。这一段是简短的自我介绍：你现在的职位、 研究方向，以及让你着迷的问题。请把模板中所有 “Your Name”“example” 占位内容 替换成你自己的信息。",
+        en: "Hi! I'm Yazhou Zhang, an engineer at the Xinjiang Astronomical Observatory (XAO), Chinese Academy of Sciences, where I also received my Ph.D. in astronomical techniques and methods. As a researcher in radio astronomy technology, my current focus is ultra-wideband pulsar data processing pipelines, including coherent dedispersion of baseband data, highly parallel processing, and radio frequency interference (RFI) identification and mitigation.",
+        zh: "你好！我是张亚州，中国科学院新疆天文台中级工程师，博士毕业于新疆天文台天文技术与方法专业。作为一名射电天文技术研究人员，我目前主要研究超宽带脉冲星数据处理流水线，工作涵盖基带数据相干消色散、高并行度数据处理、射频干扰（RFI）识别与消除等方向。",
+      },
+      {
+        en: "Much of my work targets the ultra-wideband observing needs of the Nanshan 25-m radio telescope and the 110-m QiTai radio Telescope (QTT) under construction. I have designed and built several data processing systems and pipelines, including UWLPIPE (an ultra-wide bandwidth low-frequency pulsar data processing pipeline), PSRDP (a parallel processing method for pulsar baseband data), URANUS (a high-throughput archiving pipeline built on a shared ring buffer), and oversampled polyphase filter bank (OS-PFB) channelization algorithms for ultrawideband digital backends. I am also interested in applying deep learning to RFI identification.",
+        zh: "我围绕南山 25 米射电望远镜以及建设中的 110 米奇台射电望远镜（QTT）的超宽带观测需求，设计并实现了多套数据处理系统与流水线：低频超宽带脉冲星数据处理流水线 UWLPIPE、脉冲星基带数据并行处理方法 PSRDP、基于共享环形缓冲的高速数据归档流水线 URANUS，以及超宽带数字后端中的过采样多相滤波器组（OS-PFB）信道化算法。我也对深度学习在射频干扰识别中的应用保持兴趣。",
+      },
+      {
+        en: "As next-generation radio telescopes produce ever-growing data volumes, I aim to turn massive raw observations into science-ready products for pulsar timing research — efficiently and reliably.",
+        zh: "新一代射电望远镜的数据量正快速增长。我希望通过更好的算法与系统工程，让海量观测数据高效、可靠地转化为脉冲星计时等科学研究可用的成果。",
       },
     ],
 
     // 高亮提示框（招聘等公告）；不需要就删掉或注释掉整个字段
-    callout: {
-      en: "<strong>We are hiring!</strong> <em>This callout is for announcements such as recruiting: replace or delete it if not needed.</em>",
-      zh: "<strong>诚聘英才！</strong> <em>这个高亮提示框可用于招聘等公告，不需要时请替换或删除。</em>",
-    },
-
-    // 提示框之后的段落（可多段）
-    paragraphs: [
-      {
-        en: "I received my BEng/BS degree from XX University in 20XX, where I worked on deep learning and computer vision. My research has been supported by example fellowships and gifts.",
-        zh: "我于 20XX 年在 XX 大学获得学士学位，期间从事深度学习与计算机视觉方面的研究。 我的研究工作曾获得多项示例奖学金与企业捐赠的支持。",
-      },
-    ],
+    // callout: {
+    //   en: "<strong>We are hiring!</strong> <em>This callout is for announcements such as recruiting: replace or delete it if not needed.</em>",
+    //   zh: "<strong>诚聘英才！</strong> <em>这个高亮提示框可用于招聘等公告，不需要时请替换或删除。</em>",
+    // },
 
     // 「Update」里程碑段落（自动带前置分隔线），可省略
     update: {
@@ -88,26 +88,26 @@ window.SITE_CONFIG = {
       zh: "<strong>2026.09 更新：</strong>这是一个「更新」示例段落 —— 可用于记录答辩、获奖、重要发布等里程碑。",
     },
 
-    // 动态分组（项目动态 / 社区动态…组数不限，共用一条前置分隔线）
-    newsGroups: [
-      {
-        heading: { en: "<strong>Project news</strong>:", zh: "<strong>项目动态</strong>：" },
-        items: [
-          {
-            en: "(Sept 2026) Example news item with a <a href=\"#\">link</a>.",
-            zh: "（2026 年 9 月）带<a href=\"#\">链接</a>的示例动态。",
-          },
-          { en: "(Jun 2026) Another example news item.", zh: "（2026 年 6 月）另一条示例动态。" },
-        ],
-      },
-      {
-        heading: { en: "<strong>Community news</strong>:", zh: "<strong>社区动态</strong>：" },
-        items: [
-          { en: "Example bullet item.", zh: "示例列表项。" },
-          { en: "Another example bullet item.", zh: "另一条示例列表项。" },
-        ],
-      },
-    ],
+    // // 动态分组（项目动态 / 社区动态…组数不限，共用一条前置分隔线）
+    // newsGroups: [
+    //   {
+    //     heading: { en: "<strong>Project news</strong>:", zh: "<strong>项目动态</strong>：" },
+    //     items: [
+    //       {
+    //         en: "(Sept 2026) Example news item with a <a href=\"#\">link</a>.",
+    //         zh: "（2026 年 9 月）带<a href=\"#\">链接</a>的示例动态。",
+    //       },
+    //       { en: "(Jun 2026) Another example news item.", zh: "（2026 年 6 月）另一条示例动态。" },
+    //     ],
+    //   },
+    //   {
+    //     heading: { en: "<strong>Community news</strong>:", zh: "<strong>社区动态</strong>：" },
+    //     items: [
+    //       { en: "Example bullet item.", zh: "示例列表项。" },
+    //       { en: "Another example bullet item.", zh: "另一条示例列表项。" },
+    //     ],
+    //   },
+    // ],
 
     // 联系方式（自动带前置分隔线），可省略
     email: {
@@ -123,24 +123,27 @@ window.SITE_CONFIG = {
         style: "edu",                      // "edu" = 学位 + 时间格式；"list" = 普通列表（默认）
         items: [
           {
-            degree: { en: "PhD in Computer Science, XX University", zh: "XX 大学 计算机科学 博士" },
-            time: "2021.9 – 2026.6",       // 时间两种语言都显示
+            degree: { en: "PhD in Astronomical Techniques and Methods, Xinjiang Astronomical Observatory, CAS", zh: "中国科学院新疆天文台 天文技术与方法 博士" },
+            time: "2022.9 – 2024.6", // 时间两种语言都显示
           },
           {
-            degree: { en: "BEng in Computer Science, YY University", zh: "YY 大学 计算机科学 工学士" },
-            time: "2017.9 – 2021.6",
+            degree: { en: "MEng in Astronomical Techniques and Methods, Xinjiang Astronomical Observatory, CAS", zh: "中国科学院新疆天文台 天文技术与方法 硕士" },
+            time: "2019.9 – 2022.6",
+          },
+          {
+            degree: { en: "BEng in Computer Science and Technology, Shenyang Aerospace University", zh: "沈阳航空航天大学 计算机科学与技术 学士" },
+            time: "2015.9 – 2019.6",
           },
         ],
       },
       {
         title: { en: "Interests", zh: "研究兴趣" },
         items: [
-          { en: "Computer graphics",          zh: "计算机图形学" },
-          { en: "Compilers",                  zh: "编译器" },
-          { en: "Physical simulation",        zh: "物理仿真" },
+          { en: "Computer Technology",        zh: "计算机技术" },
+          { en: "GPU Acceleration",           zh: "GPU 加速" },
           { en: "High-performance computing", zh: "高性能计算" },
           { en: "Deep learning",              zh: "深度学习" },
-          { en: "Computer vision",            zh: "计算机视觉" },
+          { en: "Pulsar",                     zh: "脉冲星" },
         ],
       },
       {
@@ -178,22 +181,6 @@ window.SITE_CONFIG = {
         date: {
           en: "Last updated on Sep 1, 2026",
           zh: "最后更新于 2026 年 9 月 1 日",
-        },
-      },
-      {
-        image: "assets/img/thumb-4.svg",
-        link: "#",
-        title: {
-          en: "Guest Lecture: An Introduction to Academic Homepages",
-          zh: "客座讲座：学术主页入门",
-        },
-        desc: {
-          en: "Spring 2026 guest lecture. How to present yourself and your research online.",
-          zh: "2026 年春季学期客座讲座。如何在互联网上展示自己与自己的研究。",
-        },
-        date: {
-          en: "Last updated on Mar 12, 2026",
-          zh: "最后更新于 2026 年 3 月 12 日",
         },
       },
     ],
@@ -621,22 +608,6 @@ window.SITE_CONFIG = {
         links: [
           { label: "Slides", href: "#" },
           { label: "Video", href: "#" },
-        ],
-      },
-      {
-        title: {
-          en: "Another Example Talk: From Research to Product",
-          zh: "另一场示例报告：从科研到产品",
-        },
-        link: "#",
-        image: "assets/img/thumb-3.svg",
-        abstract: {
-          en: "“An example talk about turning research prototypes into products.”",
-          zh: "「一个关于如何把科研原型做成产品的示例报告。」",
-        },
-        date: { en: "Jul 12, 2025", zh: "2025 年 7 月 12 日" },
-        links: [
-          { label: "Slides", href: "#" },
         ],
       },
     ],
