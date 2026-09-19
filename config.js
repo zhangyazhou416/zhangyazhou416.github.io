@@ -22,7 +22,7 @@ window.SITE_CONFIG = {
 
   /* ---------- 站点元信息（写入 <title> 与 <meta>，标题随语言切换） ---------- */
   meta: {
-    title:       { en: "Yazhou Zhang", zh: "张亚州" },
+    title:       { en: "Yazhou Zhang's Academic Homepage", zh: "张亚州的个人学术页面" },
     description: { en: "Academic homepage of Yazhou Zhang.", zh: "张亚州的学术主页。" },
     author:      "Yazhou Zhang",
   },
