@@ -36,6 +36,7 @@ python3 -m http.server 8000
 | --- | --- |
 | 名字 / 标题 / 导航品牌 | `meta.title`、`brand`（中英两份都要改） |
 | 头像 | 图片放到 `assets/img/`，改 `bio.portrait.src`，建议 270×370（约 3:4 竖版） |
+| 头像下社交图标 | `bio.social` 数组，每项 `{ icon, href, title }`；icon 可选 `zhihu` / `bilibili` / `github` / `gitlab` / `gitee` / `orcid` / `email` / `homepage` / `scholar`（注册表在 `assets/js/render.js` 的 `ICONS`，可自行扩充） |
 | 简介、新闻、Email | `bio` 里 `intro` / `callout` / `update` / `newsGroups` / `email` 各字段，不需要的整段删掉即可 |
 | 教育 / 兴趣 / News 折叠面板 | `bio.accordions` 数组，可增删整块 |
 | 论文 | 在 `research.items` 数组里加一个对象：标题、venue、摘要、作者、链接、BibTeX |
@@ -43,6 +44,7 @@ python3 -m http.server 8000
 | 主题色 | `assets/css/style.css` 顶部的 `--primary`（浅色默认 `#1111aa`，与原站一致；深色下自动提亮为 `#8b93ff`） |
 | 深色配色 | `style.css` 中 `:root[data-theme="dark"]` 一块 |
 | 字体 | `<head>` 里的 Google Fonts 链接 + `style.css` 顶部 `--font-*` 变量 |
+| 整体字号 | `style.css` 里 `html` 的基准字号（16.17px，宽屏 ≥928px 自动放大到 21px，与原站一致；觉得小/大改这两处即可） |
 | favicon | `assets/img/favicon.svg` |
 
 三个最常见的操作示例：
@@ -75,6 +77,22 @@ python3 -m http.server 8000
 // ③ 暂时隐藏教学栏：把 teaching.items 清空（连导航入口一起隐藏）
 teaching: { title: { en: "Teaching", zh: "教学" }, items: [] },
 ```
+
+## 从 ORCID 同步论文
+
+论文列表可以直接从你的 ORCID 记录拉取（需要本机装有 Node 18+；网站本身依旧零依赖）：
+
+```bash
+node tools/sync-orcid.js            # 预览：抓取并列出新增论文，生成 orcid-import.js
+node tools/sync-orcid.js --merge    # 合并进 config.js（原文件自动备份为 config.js.bak）
+```
+
+- ORCID iD 自动取自 `bio.social` 里 icon 为 `orcid` 的链接（也可当参数临时指定）；
+- 每篇论文生成：标题、期刊 + 年份（venue）、完整作者、DOI 链接按钮、Cite 按钮（bibtex 优先用 ORCID 里存的引用，没有则按元数据自动生成）；
+- 按标题与已有条目去重，重复运行不会重复插入；最新论文插在最前面；
+- 同步是**构建期**的（抓完写进 config.js 再发布），不是网页运行时抓取——这样双击 `index.html`（file://）和禁 JS 的爬虫（含 Google Scholar）都能看到论文。
+
+ORCID 没有的字段（摘要、缩略图、PDF/代码链接）需要合并后在 config.js 里手工补。
 
 ## 双语怎么写
 

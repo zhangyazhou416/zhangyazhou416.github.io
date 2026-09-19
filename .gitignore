@@ -1,3 +1,5 @@
 .DS_Store
 Thumbs.db
 *.swp
+orcid-import.js
+config.js.bak

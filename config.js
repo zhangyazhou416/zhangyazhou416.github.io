@@ -22,13 +22,13 @@ window.SITE_CONFIG = {
 
   /* ---------- 站点元信息（写入 <title> 与 <meta>，标题随语言切换） ---------- */
   meta: {
-    title:       { en: "Your Name", zh: "你的名字" },
-    description: { en: "Academic homepage of Your Name.", zh: "你的名字的学术主页。" },
-    author:      "Your Name",
+    title:       { en: "Yazhou Zhang", zh: "张亚州" },
+    description: { en: "Academic homepage of Yazhou Zhang.", zh: "张亚州的学术主页。" },
+    author:      "Yazhou Zhang",
   },
 
   /* ---------- 导航栏左侧品牌名 ---------- */
-  brand: { en: "Your Name", zh: "你的名字" },
+  brand: { en: "Yazhou Zhang", zh: "张亚州" },
 
   /* ---------- 栏目顺序（可用 id：bio / teaching / research / talks） ---------- */
   nav: ["bio", "teaching", "research", "talks"],
@@ -39,15 +39,26 @@ window.SITE_CONFIG = {
 
     portrait: {                            // 头像：建议 270×370 竖版（约 3:4）
       src: "assets/img/avatar.svg",
-      alt: "Photo of Your Name",
+      alt: "Photo of Yazhou Zhang",
       width: 270,
       height: 370,
     },
 
-    name:     { en: "Your Name", zh: "你的名字" },
-    nameNote: { en: "中文名 博士" },        // 英文模式下行内补充的中文名，可省略
-    degree:   { en: "Ph.D., XX University", zh: "XX 大学 计算机科学 博士" },
-    role:     { en: "Founder & CEO, XXX", zh: "XXX 创始人兼 CEO" },
+    name:     { en: "Yazhou Zhang", zh: "张亚州" },
+    degree:   { en: "Ph.D., Xinjiang Astronomical Observatory", zh: "新疆天文台 天文技术与方法博士" },
+    role:     { en: "Engineer", zh: "中级工程师" },
+
+    // 头像下方的社交图标（点击跳转）；icon 可选：
+    //   zhihu / bilibili / github / gitlab / gitee / orcid / email / homepage / scholar
+    // 不需要的整行删掉，href 换成你自己的主页链接
+    social: [
+      { icon: "zhihu",    href: "https://www.zhihu.com/people/zhangyazhou416", title: "知乎" },        // TODO: 换成知乎个人主页
+      { icon: "bilibili", href: "https://space.bilibili.com/99076000", title: "哔哩哔哩" },     // TODO: 换成 B 站个人主页
+      { icon: "github",   href: "https://github.com/zhangyazhou416", title: "GitHub" },
+      { icon: "gitlab",   href: "https://gitlab.com/zhangyazhou416", title: "GitLab" },      // TODO: 换成 GitLab 个人主页
+      { icon: "gitee",    href: "https://gitee.com/zhangyazhou416", title: "Gitee" },       // TODO: 换成 Gitee 个人主页
+      { icon: "orcid",    href: "https://orcid.org/0000-0001-6046-2950", title: "ORCID" },  // TODO: 换成你的 ORCID 主页（https://orcid.org/xxxx-xxxx-xxxx-xxxx）
+    ],
 
     // 开头自我介绍段落（可多段）
     intro: [
@@ -100,16 +111,9 @@ window.SITE_CONFIG = {
 
     // 联系方式（自动带前置分隔线），可省略
     email: {
-      en: "<strong>Email</strong>: yourname <em>at</em> example <em>dot</em> com",
-      zh: "<strong>邮箱</strong>：yourname <em>at</em> example <em>dot</em> com",
+      en: "<strong>Email</strong>: zhangyazhou <em>at</em> xao <em>dot</em> ac <em>dot</em> cn",
+      zh: "<strong>邮箱</strong>：zhangyazhou <em>at</em> xao <em>dot</em> ac <em>dot</em> cn",
     },
-
-    // 简介下方的链接按钮（label 不分语言）
-    links: [
-      { label: "GitHub",         href: "https://github.com/yourname" },
-      { label: "Google Scholar", href: "https://scholar.google.com" },
-      { label: "CV",             href: "#" },
-    ],
 
     // 折叠面板（Education / Interests / News…），顺序即显示顺序，可增删
     accordions: [
@@ -200,130 +204,399 @@ window.SITE_CONFIG = {
     title: { en: "Research", zh: "科研" },
     items: [
       {
-        title: {
-          en: "The Example Thesis: High-Performance and Differentiable Visual Computing",
-          zh: "示例博士论文：高性能与可微视觉计算",
-        },
-        link:  "#",                       // 标题与缩略图共用；省略则不加链接
-        image: "assets/img/thumb-2.svg",  // 省略则无缩略图、自动单栏布局
-        venue: "Ph.D. Thesis, XX University, 2026",   // 不分语言
-        abstract: {
-          en: "Everything about the example framework, from language design to compiler implementation.",
-          zh: "关于示例框架的一切：从语言设计到编译器实现。",
-        },
-        authors: "Your Name",             // 不分语言
-        links: [                          // 按钮顺序即显示顺序，可写任意自定义按钮
-          { label: "PDF", href: "#" },
-          { cite: true },                 // Cite 按钮；未配 bibtex 时自动省略
-          { label: "Code", href: "#" },
+        title: "INGAD: Asynchronous acknowledgment channel decoupling for high-throughput data archiving in radio astronomy",
+        link: "https://doi.org/10.1016/j.ascom.2026.101192",
+        venue: "Astronomy and Computing, 2027",
+        authors: "Jie Wang, Hai-long Zhang, Bo Wang, Xin-chen Ye, Ya-zhou Zhang, Hong-mei Tang, Ting Zhang, Wan-qiong Wang, Jia Li, Xu Du, Wen-na Cai, Yu-yue Jiao",
+        links: [
+          { label: "DOI", href: "https://doi.org/10.1016/j.ascom.2026.101192" },
+          { cite: true },
         ],
-        bibtex: `@phdthesis{name2026example,
-  title  = {The Example Thesis: High-Performance and Differentiable Visual Computing},
-  author = {Name, Your},
-  school = {XX University},
-  year   = {2026}
+        bibtex: `@article{wang2027ingad,
+  title     = {INGAD: Asynchronous acknowledgment channel decoupling for high-throughput data archiving in radio astronomy},
+  author    = {Wang, Jie and Zhang, Hai-long and Wang, Bo and Ye, Xin-chen and Zhang, Ya-zhou and Tang, Hong-mei and Zhang, Ting and Wang, Wan-qiong and Li, Jia and Du, Xu and Cai, Wen-na and Jiao, Yu-yue},
+  journal   = {Astronomy and Computing},
+  year      = {2027},
+  month     = {01},
+  doi       = {10.1016/j.ascom.2026.101192}
 }`,
       },
       {
-        title: {
-          en: "An Example Paper: Doing More with Less Memory",
-          zh: "示例论文：用更少的内存做更多的事",
-        },
-        link: "#",
-        image: "assets/img/thumb-3.svg",
-        venue: "SIGGRAPH 2026",
-        abstract: {
-          en: "Simulate more with less memory, using an example quantization compiler.",
-          zh: "使用示例量化编译器，以更少的内存模拟更多的内容。",
-        },
-        authors: "Your Name, A. Collaborator, B. Collaborator, C. Collaborator",
+        title: "An Oversampled Polyphase Filter Bank Channelization Algorithm for Molecular Spectral Line Data",
+        link: "https://doi.org/10.1088/1674-4527/ae6a78",
+        venue: "Research in Astronomy and Astrophysics, 2026",
+        authors: "Ting Zhang, Hai-Long Zhang, Ya-Zhou Zhang, Jie Wang, Hong-Mei Tang, Jian Li, Xin-Chen Ye, Xu Du, Wen-Na Cai, Yu-Yue Jiao",
         links: [
-          { label: "PDF", href: "#" },
+          { label: "DOI", href: "https://doi.org/10.1088/1674-4527/ae6a78" },
           { cite: true },
-          { label: "Code", href: "#" },
-          { label: "Video", href: "#" },
         ],
-        bibtex: `@inproceedings{name2026paper,
-  title     = {An Example Paper: Doing More with Less Memory},
-  author    = {Name, Your and Collaborator, A. and Collaborator, B. and Collaborator, C.},
-  booktitle = {ACM SIGGRAPH 2026},
-  year      = {2026}
+        bibtex: `@article{zhang2026an,
+  title     = {An Oversampled Polyphase Filter Bank Channelization Algorithm for Molecular Spectral Line Data},
+  author    = {Zhang, Ting and Zhang, Hai-Long and Zhang, Ya-Zhou and Wang, Jie and Tang, Hong-Mei and Li, Jian and Ye, Xin-Chen and Du, Xu and Cai, Wen-Na and Jiao, Yu-Yue},
+  journal   = {Research in Astronomy and Astrophysics},
+  year      = {2026},
+  month     = {11},
+  doi       = {10.1088/1674-4527/ae6a78}
 }`,
       },
       {
-        title: {
-          en: "A Differentiable Example: End-to-End Learning for Physical Simulation",
-          zh: "可微示例：面向物理仿真的端到端学习",
-        },
-        link: "#",
-        image: "assets/img/thumb-4.svg",
-        venue: "ICLR 2025 (Spotlight)",
-        abstract: {
-          en: "A virtual environment for <strong>differentiable</strong> example-based manipulation.",
-          zh: "一个面向<strong>可微</strong>示例操作的虚拟环境。",
-        },
-        authors: "Your Name, A. Collaborator, B. Collaborator, C. Collaborator",
+        title: "A CAViT-UNet Hybrid Architecture Method for Radio Frequency Interference Segmentation",
+        link: "https://doi.org/10.1088/1674-4527/aea1ef",
+        venue: "Research in Astronomy and Astrophysics, 2026",
+        authors: "Hongmei TANG, hailong zhang, Yuyue JIAO, Zhang Yazhou, Jie WANG, Xinchen YE, Jia LI, Wanqiong WANG, Ting ZHANG, Xu Du, Wen-na CAI",
         links: [
-          { label: "PDF", href: "#" },
+          { label: "DOI", href: "https://doi.org/10.1088/1674-4527/aea1ef" },
           { cite: true },
-          { label: "Code", href: "#" },
-          { label: "Video", href: "#" },
         ],
-        bibtex: `@inproceedings{name2025differentiable,
-  title     = {A Differentiable Example: End-to-End Learning for Physical Simulation},
-  author    = {Name, Your and Collaborator, A. and Collaborator, B. and Collaborator, C.},
-  booktitle = {ICLR},
-  year      = {2025}
+        bibtex: `@article{tang2026a,
+  title     = {A CAViT-UNet Hybrid Architecture Method for Radio Frequency Interference Segmentation},
+  author    = {TANG, Hongmei and zhang, hailong and JIAO, Yuyue and Yazhou, Zhang and WANG, Jie and YE, Xinchen and LI, Jia and WANG, Wanqiong and ZHANG, Ting and Du, Xu and CAI, Wen-na},
+  journal   = {Research in Astronomy and Astrophysics},
+  year      = {2026},
+  month     = {09},
+  doi       = {10.1088/1674-4527/aea1ef}
 }`,
       },
       {
-        title: {
-          en: "Another Example: A Hands-on Tutorial for Beginners",
-          zh: "再来一例：面向初学者的动手教程",
-        },
-        link: "#",
-        image: "assets/img/thumb-1.svg",
-        venue: "SIGGRAPH 2025 Courses",
-        abstract: {
-          en: "An introductory tutorial on the example framework.",
-          zh: "示例框架的入门教程。",
-        },
-        authors: "Your Name",
+        title: "An UWB digital backend system based on OS-PFB algorithm for QTT",
+        link: "https://doi.org/10.1088/1674-4527/aea0b4",
+        venue: "Research in Astronomy and Astrophysics, 2026",
+        authors: "hailong zhang, Zhang Yazhou, Xinchen YE, Shaocong GUO, Hao Yan, Jianping Yuan, Na Wang, Qiao Meng, Jian Li, Jie WANG, Hongmei TANG, Xu Du, Wen-na CAI, Ting ZHANG, Yuyue JIAO",
         links: [
-          { label: "PDF", href: "#" },
+          { label: "DOI", href: "https://doi.org/10.1088/1674-4527/aea0b4" },
           { cite: true },
-          { label: "Video", href: "#" },
         ],
-        bibtex: `@inproceedings{name2025tutorial,
-  title     = {Another Example: A Hands-on Tutorial for Beginners},
-  author    = {Name, Your},
-  booktitle = {SIGGRAPH Courses},
-  year      = {2025}
+        bibtex: `@article{zhang2026anb,
+  title     = {An UWB digital backend system based on OS-PFB algorithm for QTT},
+  author    = {zhang, hailong and Yazhou, Zhang and YE, Xinchen and GUO, Shaocong and Yan, Hao and Yuan, Jianping and Wang, Na and Meng, Qiao and Li, Jian and WANG, Jie and TANG, Hongmei and Du, Xu and CAI, Wen-na and ZHANG, Ting and JIAO, Yuyue},
+  journal   = {Research in Astronomy and Astrophysics},
+  year      = {2026},
+  month     = {08},
+  doi       = {10.1088/1674-4527/aea0b4}
 }`,
       },
       {
-        title: {
-          en: "An Early Example: The First Steps",
-          zh: "早期示例：第一步",
-        },
-        link: "#",
-        image: "assets/img/thumb-2.svg",
-        venue: "CVPR 2024",
-        abstract: {
-          en: "A deep-learning-based example algorithm that adaptively selects high-confidence regions.",
-          zh: "一种基于深度学习的示例算法，可自适应地选择高置信度区域。",
-        },
-        authors: "Your Name, A. Collaborator, B. Collaborator",
+        title: "The Design and Implementation of an Ultrawideband Digital Backend Visualization Control System Based on gRPC",
+        link: "https://doi.org/10.3847/1538-3881/ae7b35",
+        venue: "The Astronomical Journal, 2026",
+        authors: "Xin-chen Ye, Hai-long Zhang, Ya-zhou Zhang, Shao-cong Guo, Jie Wang, Hong-mei Tang, Jian Li, Xu Du, Wen-na Cai, Ting Zhang, Yu-yue Jiao",
         links: [
-          { label: "PDF", href: "#" },
+          { label: "DOI", href: "https://doi.org/10.3847/1538-3881/ae7b35" },
           { cite: true },
-          { label: "Code", href: "#" },
         ],
-        bibtex: `@inproceedings{name2024early,
-  title     = {An Early Example: The First Steps},
-  author    = {Name, Your and Collaborator, A. and Collaborator, B.},
-  booktitle = {CVPR},
-  year      = {2024}
+        bibtex: `@article{ye2026the,
+  title     = {The Design and Implementation of an Ultrawideband Digital Backend Visualization Control System Based on gRPC},
+  author    = {Ye, Xin-chen and Zhang, Hai-long and Zhang, Ya-zhou and Guo, Shao-cong and Wang, Jie and Tang, Hong-mei and Li, Jian and Du, Xu and Cai, Wen-na and Zhang, Ting and Jiao, Yu-yue},
+  journal   = {The Astronomical Journal},
+  year      = {2026},
+  month     = {08},
+  doi       = {10.3847/1538-3881/ae7b35}
+}`,
+      },
+      {
+        title: "Data Products and Retrieval Methods of 74 Pulsars from the Nanshan 25 m Radio Telescope",
+        link: "https://doi.org/10.1088/1674-4527/ae5619",
+        venue: "Research in Astronomy and Astrophysics, 2026",
+        authors: "Hai-Long Zhang, Jie Wang, Jian-Ping Yuan, Ya-Zhou Zhang, Ju-Mei Yao, Na Wang, Xin-Chen Ye, Hong-Mei Tang, Wan-Qiong Wang, Jia Li, Xu Du, Wen-Na Cai, Ting Zhang, Yu-Yue Jiao, Bo Wang",
+        links: [
+          { label: "DOI", href: "https://doi.org/10.1088/1674-4527/ae5619" },
+          { cite: true },
+        ],
+        bibtex: `@article{zhang2026data,
+  title     = {Data Products and Retrieval Methods of 74 Pulsars from the Nanshan 25 m Radio Telescope},
+  author    = {Zhang, Hai-Long and Wang, Jie and Yuan, Jian-Ping and Zhang, Ya-Zhou and Yao, Ju-Mei and Wang, Na and Ye, Xin-Chen and Tang, Hong-Mei and Wang, Wan-Qiong and Li, Jia and Du, Xu and Cai, Wen-Na and Zhang, Ting and Jiao, Yu-Yue and Wang, Bo},
+  journal   = {Research in Astronomy and Astrophysics},
+  year      = {2026},
+  month     = {07},
+  doi       = {10.1088/1674-4527/ae5619}
+}`,
+      },
+      {
+        title: "URANUS: Ultra-wideband Radio Astronomy Novel Utility for Shared Ring Buffer Pipeline",
+        link: "https://doi.org/10.3847/1538-3881/ae6066",
+        venue: "The Astronomical Journal, 2026",
+        authors: "Ya-Zhou Zhang, Hai-Long Zhang, Xin-Chen Ye, Shao-Cong Guo, Jie Wang, Hong-Mei Tang, Jian Li, Xu Du, Wen-Na Cai, Ting Zhang, Yu-Yue Jiao",
+        links: [
+          { label: "DOI", href: "https://doi.org/10.3847/1538-3881/ae6066" },
+          { cite: true },
+        ],
+        bibtex: `@article{zhang2026uranus,
+  title     = {URANUS: Ultra-wideband Radio Astronomy Novel Utility for Shared Ring Buffer Pipeline},
+  author    = {Zhang, Ya-Zhou and Zhang, Hai-Long and Ye, Xin-Chen and Guo, Shao-Cong and Wang, Jie and Tang, Hong-Mei and Li, Jian and Du, Xu and Cai, Wen-Na and Zhang, Ting and Jiao, Yu-Yue},
+  journal   = {The Astronomical Journal},
+  year      = {2026},
+  month     = {06},
+  doi       = {10.3847/1538-3881/ae6066}
+}`,
+      },
+      {
+        title: "Research on Multiclassification Algorithm of Ultrawideband Pulsar RFI Based on MobileNetV2",
+        link: "https://doi.org/10.3847/1538-3881/ae2ad5",
+        venue: "The Astronomical Journal, 2026",
+        authors: "Wenna Cai, Hailong Zhang, Yazhou Zhang, Jie Wang, Xu Du, Ting Zhang, Yuyue Jiao, Hongmei Tang, Xinchen Ye, Wanqiong Wang, Jia Li",
+        links: [
+          { label: "DOI", href: "https://doi.org/10.3847/1538-3881/ae2ad5" },
+          { cite: true },
+        ],
+        bibtex: `@article{cai2026research,
+  title     = {Research on Multiclassification Algorithm of Ultrawideband Pulsar RFI Based on MobileNetV2},
+  author    = {Cai, Wenna and Zhang, Hailong and Zhang, Yazhou and Wang, Jie and Du, Xu and Zhang, Ting and Jiao, Yuyue and Tang, Hongmei and Ye, Xinchen and Wang, Wanqiong and Li, Jia},
+  journal   = {The Astronomical Journal},
+  year      = {2026},
+  month     = {02},
+  doi       = {10.3847/1538-3881/ae2ad5}
+}`,
+      },
+      {
+        title: "A Dual Polyphase Decomposition Overlapped Polyphase Filter Bank and Its Implementation in a Field-programmable Gate Array",
+        link: "https://doi.org/10.3847/1538-4365/ade236",
+        venue: "The Astrophysical Journal Supplement Series, 2025",
+        authors: "Shaocong Guo, Qiao Meng, Hailong Zhang, Yazhou Zhang, Chenye Zhou, Gaojing Li, Jie Wu, Jianxun Shao",
+        links: [
+          { label: "DOI", href: "https://doi.org/10.3847/1538-4365/ade236" },
+          { cite: true },
+        ],
+        bibtex: `@article{guo2025a,
+  title     = {A Dual Polyphase Decomposition Overlapped Polyphase Filter Bank and Its Implementation in a Field-programmable Gate Array},
+  author    = {Guo, Shaocong and Meng, Qiao and Zhang, Hailong and Zhang, Yazhou and Zhou, Chenye and Li, Gaojing and Wu, Jie and Shao, Jianxun},
+  journal   = {The Astrophysical Journal Supplement Series},
+  year      = {2025},
+  month     = {08},
+  doi       = {10.3847/1538-4365/ade236}
+}`,
+      },
+      {
+        title: "Research on Rationally Oversampled Channelization Algorithm for Ultra-wideband Signals",
+        link: "https://doi.org/10.1088/1674-4527/adbb56",
+        venue: "Research in Astronomy and Astrophysics, 2025",
+        authors: "Xu Du, Hai-Long Zhang, Shao-Cong Guo, Ya-Zhou Zhang, Jie Wang, Xin-Chen Ye, Jian Li, Wen-Na Cai, Han Wu, Ting Zhang",
+        links: [
+          { label: "DOI", href: "https://doi.org/10.1088/1674-4527/adbb56" },
+          { cite: true },
+        ],
+        bibtex: `@article{du2025research,
+  title     = {Research on Rationally Oversampled Channelization Algorithm for Ultra-wideband Signals},
+  author    = {Du, Xu and Zhang, Hai-Long and Guo, Shao-Cong and Zhang, Ya-Zhou and Wang, Jie and Ye, Xin-Chen and Li, Jian and Cai, Wen-Na and Wu, Han and Zhang, Ting},
+  journal   = {Research in Astronomy and Astrophysics},
+  year      = {2025},
+  month     = {03},
+  doi       = {10.1088/1674-4527/adbb56}
+}`,
+      },
+      {
+        title: "An Ultrawide Bandwidth Digital Backend System Based on PFB Algorithm for QTT",
+        link: "https://doi.org/10.3847/1538-3881/ad7fe0",
+        venue: "The Astronomical Journal, 2024",
+        authors: "Hai-long Zhang, Ya-zhou Zhang, Shao-cong Guo, Xu Du, Na Wang, Jie Wang, Xin-chen Ye, Han Wu, Jian Li, Xin Pei, Qiao Meng",
+        links: [
+          { label: "DOI", href: "https://doi.org/10.3847/1538-3881/ad7fe0" },
+          { cite: true },
+        ],
+        bibtex: `@article{zhang2024an,
+  title     = {An Ultrawide Bandwidth Digital Backend System Based on PFB Algorithm for QTT},
+  author    = {Zhang, Hai-long and Zhang, Ya-zhou and Guo, Shao-cong and Du, Xu and Wang, Na and Wang, Jie and Ye, Xin-chen and Wu, Han and Li, Jian and Pei, Xin and Meng, Qiao},
+  journal   = {The Astronomical Journal},
+  year      = {2024},
+  month     = {11},
+  doi       = {10.3847/1538-3881/ad7fe0}
+}`,
+      },
+      {
+        title: "Research on a Multi-source RFI Mitigation Algorithm Using a Reference Antenna Array",
+        link: "https://doi.org/10.1088/1674-4527/ad86a9",
+        venue: "Research in Astronomy and Astrophysics, 2024",
+        authors: "Han Wu, Hai-Long Zhang, Ya-Zhou Zhang, Jie Wang, Xin-Chen Ye, Xu Du, Ting Zhang",
+        links: [
+          { label: "DOI", href: "https://doi.org/10.1088/1674-4527/ad86a9" },
+          { cite: true },
+        ],
+        bibtex: `@article{wu2024research,
+  title     = {Research on a Multi-source RFI Mitigation Algorithm Using a Reference Antenna Array},
+  author    = {Wu, Han and Zhang, Hai-Long and Zhang, Ya-Zhou and Wang, Jie and Ye, Xin-Chen and Du, Xu and Zhang, Ting},
+  journal   = {Research in Astronomy and Astrophysics},
+  year      = {2024},
+  month     = {11},
+  doi       = {10.1088/1674-4527/ad86a9}
+}`,
+      },
+      {
+        title: "UWLPIPE: Ultra-wide Bandwidth Low-frequency Pulsar Data Processing Pipeline",
+        link: "https://doi.org/10.1088/1674-4527/ad4fc4",
+        venue: "Research in Astronomy and Astrophysics, 2024",
+        authors: "Ya-Zhou Zhang, Hai-Long Zhang, Jie Wang, Jian Li, Xin-Chen Ye, Shuang-Qiang Wang, Xu Du, Han Wu, Ting Zhang, Shao-Cong Guo",
+        links: [
+          { label: "DOI", href: "https://doi.org/10.1088/1674-4527/ad4fc4" },
+          { cite: true },
+        ],
+        bibtex: `@article{zhang2024uwlpipe,
+  title     = {UWLPIPE: Ultra-wide Bandwidth Low-frequency Pulsar Data Processing Pipeline},
+  author    = {Zhang, Ya-Zhou and Zhang, Hai-Long and Wang, Jie and Li, Jian and Ye, Xin-Chen and Wang, Shuang-Qiang and Du, Xu and Wu, Han and Zhang, Ting and Guo, Shao-Cong},
+  journal   = {Research in Astronomy and Astrophysics},
+  year      = {2024},
+  month     = {07},
+  doi       = {10.1088/1674-4527/ad4fc4}
+}`,
+      },
+      {
+        title: "A Cross-matching Service for Data Center of Xinjiang Astronomical Observatory",
+        link: "https://doi.org/10.1088/1674-4527/ad08e8",
+        venue: "Research in Astronomy and Astrophysics, 2024",
+        authors: "Hai-Long Zhang, Jie Wang, Xin-Chen Ye, Wan-Qiong Wang, Jia Li, Ya-Zhou Zhang, Xu Du, Han Wu, Ting Zhang",
+        links: [
+          { label: "DOI", href: "https://doi.org/10.1088/1674-4527/ad08e8" },
+          { cite: true },
+        ],
+        bibtex: `@article{zhang2024a,
+  title     = {A Cross-matching Service for Data Center of Xinjiang Astronomical Observatory},
+  author    = {Zhang, Hai-Long and Wang, Jie and Ye, Xin-Chen and Wang, Wan-Qiong and Li, Jia and Zhang, Ya-Zhou and Du, Xu and Wu, Han and Zhang, Ting},
+  journal   = {Research in Astronomy and Astrophysics},
+  year      = {2024},
+  month     = {01},
+  doi       = {10.1088/1674-4527/ad08e8}
+}`,
+      },
+      {
+        title: "Research on Ultra-wide Bandwidth Low-frequency Signal Channelization for Xinjiang 110 m Radio Telescope",
+        link: "https://doi.org/10.1088/1674-4527/ad0427",
+        venue: "Research in Astronomy and Astrophysics, 2023",
+        authors: "Hai-Long Zhang, Ya-Zhou Zhang, Meng Zhang, Jie Wang, Jian Li, Xin-Chen Ye, Xin Pei",
+        links: [
+          { label: "DOI", href: "https://doi.org/10.1088/1674-4527/ad0427" },
+          { cite: true },
+        ],
+        bibtex: `@article{zhang2023research,
+  title     = {Research on Ultra-wide Bandwidth Low-frequency Signal Channelization for Xinjiang 110 m Radio Telescope},
+  author    = {Zhang, Hai-Long and Zhang, Ya-Zhou and Zhang, Meng and Wang, Jie and Li, Jian and Ye, Xin-Chen and Pei, Xin},
+  journal   = {Research in Astronomy and Astrophysics},
+  year      = {2023},
+  month     = {12},
+  doi       = {10.1088/1674-4527/ad0427}
+}`,
+      },
+      {
+        title: "PSRDP: A parallel processing method for pulsar baseband data",
+        link: "https://doi.org/10.1088/1674-4527/ad0e99",
+        venue: "Research in Astronomy and Astrophysics, 2023",
+        authors: "Zhang Yazhou, hailong zhang, Jie WANG, Xinchen YE, ShuangQiang Wang, Xu Du, Han Wu, Ting ZHANG",
+        links: [
+          { label: "DOI", href: "https://doi.org/10.1088/1674-4527/ad0e99" },
+          { cite: true },
+        ],
+        bibtex: `@article{yazhou2023psrdp,
+  title     = {PSRDP: A parallel processing method for pulsar baseband data},
+  author    = {Yazhou, Zhang and zhang, hailong and WANG, Jie and YE, Xinchen and Wang, ShuangQiang and Du, Xu and Wu, Han and ZHANG, Ting},
+  journal   = {Research in Astronomy and Astrophysics},
+  year      = {2023},
+  month     = {11},
+  doi       = {10.1088/1674-4527/ad0e99}
+}`,
+      },
+      {
+        title: "The RFI Fast Mitigation Algorithm Based on Block LMS Filter",
+        link: "https://doi.org/10.1088/1674-4527/ad05e9",
+        venue: "Research in Astronomy and Astrophysics, 2023",
+        authors: "Han Wu, hailong zhang, Zhang Yazhou, Jie WANG, Xu Du, Ting ZHANG, Xinchen YE",
+        links: [
+          { label: "DOI", href: "https://doi.org/10.1088/1674-4527/ad05e9" },
+          { cite: true },
+        ],
+        bibtex: `@article{wu2023the,
+  title     = {The RFI Fast Mitigation Algorithm Based on Block LMS Filter},
+  author    = {Wu, Han and zhang, hailong and Yazhou, Zhang and WANG, Jie and Du, Xu and ZHANG, Ting and YE, Xinchen},
+  journal   = {Research in Astronomy and Astrophysics},
+  year      = {2023},
+  month     = {10},
+  doi       = {10.1088/1674-4527/ad05e9}
+}`,
+      },
+      {
+        title: "Research on Channelization Techniques of Radio Astronomical Wideband Signal with Oversampled Polyphase Filter Banks",
+        link: "https://doi.org/10.1088/1674-4527/acd73b",
+        venue: "Research in Astronomy and Astrophysics, 2023",
+        authors: "Meng Zhang, Hai-Long Zhang, Ya-Zhou Zhang, Jie Wang, Shao-Cong Guo, Qiao Meng",
+        links: [
+          { label: "DOI", href: "https://doi.org/10.1088/1674-4527/acd73b" },
+          { cite: true },
+        ],
+        bibtex: `@article{zhang2023researchb,
+  title     = {Research on Channelization Techniques of Radio Astronomical Wideband Signal with Oversampled Polyphase Filter Banks},
+  author    = {Zhang, Meng and Zhang, Hai-Long and Zhang, Ya-Zhou and Wang, Jie and Guo, Shao-Cong and Meng, Qiao},
+  journal   = {Research in Astronomy and Astrophysics},
+  year      = {2023},
+  month     = {08},
+  doi       = {10.1088/1674-4527/acd73b}
+}`,
+      },
+      {
+        title: "Investigation of Traffic Classification Applied to an Astronomical Data Transmission Network of the XAO Using Deep Learning",
+        link: "https://doi.org/10.1088/1674-4527/acafc5",
+        venue: "Research in Astronomy and Astrophysics, 2023",
+        authors: "Jie Wang, Hai-Long Zhang, Na Wang, Xin-Chen Ye, Wan-Qiong Wang, Jia Li, Meng Zhang, Ya-Zhou Zhang, Xu Du",
+        links: [
+          { label: "DOI", href: "https://doi.org/10.1088/1674-4527/acafc5" },
+          { cite: true },
+        ],
+        bibtex: `@article{wang2023investigation,
+  title     = {Investigation of Traffic Classification Applied to an Astronomical Data Transmission Network of the XAO Using Deep Learning},
+  author    = {Wang, Jie and Zhang, Hai-Long and Wang, Na and Ye, Xin-Chen and Wang, Wan-Qiong and Li, Jia and Zhang, Meng and Zhang, Ya-Zhou and Du, Xu},
+  journal   = {Research in Astronomy and Astrophysics},
+  year      = {2023},
+  month     = {03},
+  doi       = {10.1088/1674-4527/acafc5}
+}`,
+      },
+      {
+        title: "Research on a Coherent Dedispersion Algorithm for Pulsar Baseband Data",
+        link: "https://doi.org/10.1088/1674-4527/aca8ee",
+        venue: "Research in Astronomy and Astrophysics, 2023",
+        authors: "Hai-Long Zhang, Ya-Zhou Zhang, Meng Zhang, Jie Wang, Ting Zhang, Shuang-Qiang Wang, Jian-ping Yuan, Xin-Chen Ye, Jian Li",
+        links: [
+          { label: "DOI", href: "https://doi.org/10.1088/1674-4527/aca8ee" },
+          { cite: true },
+        ],
+        bibtex: `@article{zhang2023researchc,
+  title     = {Research on a Coherent Dedispersion Algorithm for Pulsar Baseband Data},
+  author    = {Zhang, Hai-Long and Zhang, Ya-Zhou and Zhang, Meng and Wang, Jie and Zhang, Ting and Wang, Shuang-Qiang and Yuan, Jian-ping and Ye, Xin-Chen and Li, Jian},
+  journal   = {Research in Astronomy and Astrophysics},
+  year      = {2023},
+  month     = {01},
+  doi       = {10.1088/1674-4527/aca8ee}
+}`,
+      },
+      {
+        title: "Simulation Study of Network Reconfiguration and Load-balancing Method for the Xinjiang Astronomical Observatory Data Center",
+        link: "https://doi.org/10.1088/1674-4527/ac846a",
+        venue: "Research in Astronomy and Astrophysics, 2022",
+        authors: "Jie Wang, Hailong Zhang, Na Wang, Xinchen Ye, Wanqiong Wang, Jia Li, Meng Zhang, Yazhou Zhang, Xu Du",
+        links: [
+          { label: "DOI", href: "https://doi.org/10.1088/1674-4527/ac846a" },
+          { cite: true },
+        ],
+        bibtex: `@article{wang2022simulation,
+  title     = {Simulation Study of Network Reconfiguration and Load-balancing Method for the Xinjiang Astronomical Observatory Data Center},
+  author    = {Wang, Jie and Zhang, Hailong and Wang, Na and Ye, Xinchen and Wang, Wanqiong and Li, Jia and Zhang, Meng and Zhang, Yazhou and Du, Xu},
+  journal   = {Research in Astronomy and Astrophysics},
+  year      = {2022},
+  month     = {09},
+  doi       = {10.1088/1674-4527/ac846a}
+}`,
+      },
+      {
+        title: "The data center construction of the Xinjiang Astronomical Observatory based on virtual observatory standards",
+        link: "https://doi.org/10.1016/j.ascom.2022.100578",
+        venue: "Astronomy and Computing, 2022",
+        authors: "H. Zhang, J. Wang, M. Demleitner, X. Ye, M. Zhang, Y. Zhang, W. Wang, J. Li, X. Du",
+        links: [
+          { label: "DOI", href: "https://doi.org/10.1016/j.ascom.2022.100578" },
+          { cite: true },
+        ],
+        bibtex: `@article{zhang2022the,
+  title     = {The data center construction of the Xinjiang Astronomical Observatory based on virtual observatory standards},
+  author    = {Zhang, H. and Wang, J. and Demleitner, M. and Ye, X. and Zhang, M. and Zhang, Y. and Wang, W. and Li, J. and Du, X.},
+  journal   = {Astronomy and Computing},
+  year      = {2022},
+  month     = {04},
+  doi       = {10.1016/j.ascom.2022.100578}
 }`,
       },
     ],
@@ -371,10 +644,10 @@ window.SITE_CONFIG = {
 
   /* ---------- 页脚 ---------- */
   footer: {
-    name: { en: "Your Name", zh: "你的名字" },
+    name: { en: "Yazhou Zhang", zh: "张亚州" },
     note: {
-      en: "Layout inspired by <a href=\"https://yuanming.taichi.graphics/\">Yuanming Hu's homepage</a>. Built with plain HTML/CSS/JS — no framework, no build step.",
-      zh: "页面布局模仿<a href=\"https://yuanming.taichi.graphics/\">胡渊鸣的主页</a>。 纯 HTML/CSS/JS 构建 —— 无框架、无构建步骤。",
+      en: "Yazhou Zhang's personal academic homepage",
+      zh: "张亚州的个人学术主页",
     },
   },
 };
