@@ -21,10 +21,12 @@ python3 -m http.server 8000
 ├── index.html              # 页面骨架（导航/弹窗外壳），日常不需要编辑
 ├── config.js               # ★ 全部页面内容 —— 日常唯一需要编辑的文件
 ├── assets
-│   ├── css/style.css       # 样式；配色在顶部 :root 变量里（含深色模式块）
+│   ├── css/style.css       # 样式；字体 @font-face 与配色变量在顶部
+│   ├── fonts/              # 本地字体 woff2（tools/fetch-fonts.sh 下载，OFL 许可）
 │   ├── js/render.js        # 读取 config.js，把内容渲染成页面
 │   ├── js/main.js          # 移动端菜单 / 滚动高亮 / Cite 弹窗 / 深色模式 / 中英切换
 │   └── img/                # 头像、论文缩略图、favicon（当前全是 SVG 占位图）
+├── tools/                  # 辅助脚本：sync-orcid.js / fetch-fonts.sh
 └── README.md
 ```
 
@@ -43,7 +45,7 @@ python3 -m http.server 8000
 | 教学 / 报告 | `teaching.items` / `talks.items` 数组 |
 | 主题色 | `assets/css/style.css` 顶部的 `--primary`（浅色默认 `#1111aa`，与原站一致；深色下自动提亮为 `#8b93ff`） |
 | 深色配色 | `style.css` 中 `:root[data-theme="dark"]` 一块 |
-| 字体 | `<head>` 里的 Google Fonts 链接 + `style.css` 顶部 `--font-*` 变量 |
+| 字体 | 全部本地化在 `assets/fonts/`（`style.css` 顶部 `@font-face` + `--font-*` 变量）；换字体/字重改 `tools/fetch-fonts.sh` 后重跑 |
 | 整体字号 | `style.css` 里 `html` 的基准字号（16.17px，宽屏 ≥928px 自动放大到 21px，与原站一致；觉得小/大改这两处即可） |
 | favicon | `assets/img/favicon.svg` |
 
@@ -124,7 +126,7 @@ ORCID 没有的字段（摘要、缩略图、PDF/代码链接）需要合并后�
 - **Cite 弹窗**：点击论文的 *Cite* 按钮弹出 BibTeX，支持一键 Copy 和下载 `.bib`。
 - **折叠面板**：Education / Interests / News 用原生 `<details>` 实现，无 JS 依赖。
 - **移动端适配**：窄屏下汉堡菜单、单栏布局。
-- **无任何外部 JS 依赖**；唯一的网络请求是 Google Fonts（国内访问慢可删除该 `<link>`，会自动退回系统字体）。
+- **无任何外部依赖**：字体也已本地化（`assets/fonts/`），不请求 Google Fonts，国内访问与离线打开都没问题。
 
 ## 部署到 GitHub Pages
 

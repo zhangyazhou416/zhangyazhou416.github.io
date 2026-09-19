@@ -4,6 +4,68 @@
  * 支持深色模式（html[data-theme="dark"]）与中英双语（html[data-lang]）
  * ========================================================= */
 
+/* ---------- 本地字体（assets/fonts/*.woff2，无外部请求） ----------
+ * 由 tools/fetch-fonts.sh 从 Google Fonts 下载的 latin 子集
+ * （思源宋体只含 brand 用字），许可 SIL OFL 1.1（见 assets/fonts/OFL.txt） */
+@font-face {
+  font-family: "EB Garamond";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/eb-garamond-italic-700.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/montserrat-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/montserrat-700.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/roboto-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/roboto-700.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/roboto-italic-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Roboto Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/roboto-mono-400.woff2") format("woff2");
+}
+/* 思源宋体 700：仅含 brand 中文用字的子集。改了 config.js 的中文 brand 后，
+ * 把新字加进 tools/fetch-fonts.sh 的 NOTO_TEXT 重跑，否则新字回退系统宋体 */
+@font-face {
+  font-family: "Noto Serif SC";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/noto-serif-sc-700-subset.woff2") format("woff2");
+}
+
 :root {
   color-scheme: light;
 
@@ -31,6 +93,8 @@
   --shadow-nav:     0 .125rem .25rem rgba(0, 0, 0, .11);  /* 原站导航阴影 */
 
   --font-heading:   "Montserrat", "PingFang SC", "Microsoft YaHei", sans-serif;
+  /* 品牌名专用衬线体：英文 EB Garamond，中文思源宋体（加载失败退回系统宋体） */
+  --font-brand:     "EB Garamond", "Noto Serif SC", "Songti SC", "SimSun", serif;
   --font-body:      "Roboto", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
   --font-mono:      "Roboto Mono", "SF Mono", Consolas, "Courier New", monospace;
   --navbar-h:       70px;                  /* 原站桌面 70px、窄屏 50px */
@@ -231,12 +295,15 @@ main#site-main .section:last-child { padding-bottom: 60px; }  /* 页尾留白 */
   align-items: center;
   justify-content: space-between;
   height: var(--navbar-h);
-  position: relative;          /* 菜单绝对居中的定位基准 */
+  position: relative;          /* 移动端下拉菜单的定位基准 */
 }
 
 .navbar-brand {
+  font-family: var(--font-brand);
   font-weight: 700;
-  font-size: 1.2rem;
+  font-style: italic;            /* 品牌名粗斜体（EB Garamond 真斜体；中文思源宋体浏览器仿斜） */
+  font-size: 1.3rem;             /* Garamond 字面偏小，略放大观感才与原 1.2rem 相当 */
+  letter-spacing: .02em;
   line-height: 1.65;
   color: var(--brand);
   margin-right: 1rem;
@@ -250,14 +317,11 @@ main#site-main .section:last-child { padding-bottom: 60px; }  /* 页尾留白 */
   gap: .25rem;
 }
 
-/* 菜单在顶栏水平居中（品牌靠左、切换按钮靠右） */
+/* 菜单靠右排布：跟在右侧切换按钮左边，留 1rem 间距 */
 .nav-menu {
   display: flex;
   gap: .2rem;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  margin-right: 1rem;
 }
 
 .nav-link {
@@ -619,7 +683,6 @@ html[data-theme="dark"] .icon-moon { display: none; }
     top: var(--navbar-h);
     left: 0;
     right: 0;
-    transform: none;           /* 取消桌面端的居中位移，恢复全宽下拉面板 */
     display: none;
     flex-direction: column;
     gap: 0;

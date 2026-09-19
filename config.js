@@ -22,13 +22,13 @@ window.SITE_CONFIG = {
 
   /* ---------- 站点元信息（写入 <title> 与 <meta>，标题随语言切换） ---------- */
   meta: {
-    title:       { en: "Yazhou Zhang's Academic Homepage", zh: "张亚州的个人学术页面" },
+    title:       { en: "Yazhou Zhang", zh: "张亚州" },
     description: { en: "Academic homepage of Yazhou Zhang.", zh: "张亚州的学术主页。" },
     author:      "Yazhou Zhang",
   },
 
   /* ---------- 导航栏左侧品牌名 ---------- */
-  brand: { en: "Yazhou Zhang", zh: "张亚州" },
+  brand: { en: "Academic homepage of Yazhou Zhang", zh: "张亚州的学术主页" },
 
   /* ---------- 栏目顺序（可用 id：bio / teaching / research / talks） ---------- */
   nav: ["bio", "teaching", "research", "talks"],
@@ -38,7 +38,7 @@ window.SITE_CONFIG = {
     navLabel: { en: "Bio", zh: "简介" },  // 导航文案（Bio 栏没有大标题，单独配一份）
 
     portrait: {                            // 头像：建议 270×370 竖版（约 3:4）
-      src: "assets/img/avatar.svg",
+      src: "assets/img/zhangyazhou.jpeg",
       alt: "Photo of Yazhou Zhang",
       width: 270,
       height: 370,
@@ -52,7 +52,7 @@ window.SITE_CONFIG = {
     //   zhihu / bilibili / github / gitlab / gitee / orcid / email / homepage / scholar
     // 不需要的整行删掉，href 换成你自己的主页链接
     social: [
-      { icon: "zhihu",    href: "https://www.zhihu.com/people/zhangyazhou416", title: "知乎" },        // TODO: 换成知乎个人主页
+      { icon: "zhihu",    href: "https://www.zhihu.com/people/zhangyazhou416", title: "知乎" },  // TODO: 换成知乎个人主页
       { icon: "bilibili", href: "https://space.bilibili.com/99076000", title: "哔哩哔哩" },     // TODO: 换成 B 站个人主页
       { icon: "github",   href: "https://github.com/zhangyazhou416", title: "GitHub" },
       { icon: "gitlab",   href: "https://gitlab.com/zhangyazhou416", title: "GitLab" },      // TODO: 换成 GitLab 个人主页
